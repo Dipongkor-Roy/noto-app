@@ -3,15 +3,16 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite" // change to "mongodb" later for prod
+  provider = "postgresql" // changed from "sqlite" to "postgresql"
   url      = env("DATABASE_URL")
 }
+
 
 model Note {
   id        String   @id @default(cuid())
   slug      String   @unique
   content   String
-  password  String?  // <-- Add this line
+  password  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

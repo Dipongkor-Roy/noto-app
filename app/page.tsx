@@ -44,8 +44,13 @@ export default function Home() {
   };
 
   return (
+    <>
+   {/* <div className='my-1 p-6'>
+
+   </div> */}
     <div className="p-6">
-      <Header />
+           <Header />
+     
       <Link href="/"><h1 className='animate-in fade-in zoom-in duration-400 text-center mb-2 text-5xl font-semibold leading-none tracking-tighter sm:text-6xl md:text-7xl '> Share <br /> {" "}
         <LineShadowText className="italic " shadowColor={shadowColor}>
           notes
@@ -131,5 +136,6 @@ export default function Home() {
       <Footer/>
       </div>
     </div>
+    </>
   );
 }

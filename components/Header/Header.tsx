@@ -16,8 +16,8 @@ const Header: React.FC = () => {
           </h1>
         </Link>
       </div>
-      <Link href="https://dipongkor-roy.vercel.app" className="flex items-center "> {/* Match the logo height */}
-        <SpinningText className="text-base  flex items-center" /* adjust text-base/h-8 as needed */>
+      <Link href="https://dipongkor-roy.vercel.app" className=""> {/* Match the logo height */}
+        <SpinningText className="" /* adjust text-base/h-8 as needed */>
           learn more • grow more •
         </SpinningText>
       </Link>

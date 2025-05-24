@@ -21,6 +21,7 @@
 /build
 
 prisma/dev.db
+prisma/migrations
 # misc
 .DS_Store
 *.pem
