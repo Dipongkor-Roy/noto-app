@@ -2,7 +2,7 @@ import { prisma } from '@/lib/db';
 import { generateSlug } from '@/lib/generateSlug';
 
 export async function POST(req: Request) {
-  const { content, customSlug } = await req.json();
+  const { content, customSlug, password } = await req.json();
 
   const slug = customSlug?.trim() || generateSlug();
 
@@ -13,7 +13,7 @@ export async function POST(req: Request) {
   }
 
   const note = await prisma.note.create({
-    data: { slug, content },
+    data: { slug, content, password }, 
   });
 
   return Response.json({ slug: note.slug });

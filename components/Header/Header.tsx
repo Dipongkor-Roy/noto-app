@@ -1,13 +1,11 @@
 'use client';
 
-import { Moon, Sun } from 'lucide-react';
-import { useTheme } from 'next-themes';
+
 import Link from 'next/link';
+import { SpinningText } from '../magicui/spinning-text';
 
 const Header: React.FC = () => {
-  const { resolvedTheme, setTheme } = useTheme();
 
-  const isDark = resolvedTheme === 'dark';
 
   return (
     <header className="w-full py-4 mb-5 px-6 md:px-8 flex justify-between items-center">
@@ -18,19 +16,11 @@ const Header: React.FC = () => {
           </h1>
         </Link>
       </div>
-      <div className="flex items-center gap-4">
-        <button
-          onClick={() => setTheme(isDark ? 'light' : 'dark')}
-          className="p-2 rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
-          aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-        >
-          {isDark ? (
-            <Sun size={20} className="text-yellow-400" />
-          ) : (
-            <Moon size={20} className="text-gray-700" />
-          )}
-        </button>
-      </div>
+      <Link href="https://dipongkor-roy.vercel.app" className="flex items-center "> {/* Match the logo height */}
+        <SpinningText className="text-base  flex items-center" /* adjust text-base/h-8 as needed */>
+          learn more • grow more •
+        </SpinningText>
+      </Link>
     </header>
   );
 };
