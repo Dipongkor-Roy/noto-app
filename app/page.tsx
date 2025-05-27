@@ -61,6 +61,20 @@ export default function Home() {
       <h3 className='  my-3 text-center  text-xl italic font-stretch-semi-condensed'>
         Write a note, generate a link, and share it with anyone. Simple as that.
       </h3>
+       <div className="flex flex-wrap justify-center gap-4 mt-10 text-sm text-gray-600">
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span>No signup required</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            <span>Instant sharing</span>
+          </div>
+          {/* <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+            <span>Beautiful design</span>
+          </div> */}
+        </div>
       <div className="relative mt-[45px] w-full backdrop-blur-2xl border-1  rounded-lg  p-4 shadow-xl ">
         <div className="absolute inset-0 -z-10  w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]"></div>
         <textarea
@@ -132,6 +146,7 @@ export default function Home() {
         <div className="mt-9 mb-0 text-center text-sm text-gray-500 dark:text-gray-400">
           <p>Notes are encrypted and available for 7 days.</p>
         </div>
+        
 
       <Footer/>
       </div>
