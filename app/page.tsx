@@ -145,14 +145,6 @@ export default function Home() {
         <div className='mt-[24px]'>
 
 
-          <div className="flex flex-wrap justify-center gap-4 mt-10 text-sm text-gray-600">
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-              <span>Notes are encrypted and available for 7 days.</span>
-            </div>
-          </div>
-
-
           <Footer />
         </div>
       </div>

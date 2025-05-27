@@ -43,7 +43,7 @@ export default function NoteViewer({
     try {
       await navigator.clipboard.writeText(text);
       toast.success('Copied to clipboard!');
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       toast.error('Failed to copy!');
     }
@@ -74,37 +74,55 @@ export default function NoteViewer({
 
   return (
     <>
-    <div className="p-6">
-      <Header/>
-     <Link href="/"><h1 className='animate-in fade-in zoom-in duration-400 text-center mb-2 text-5xl font-semibold leading-none tracking-tighter sm:text-6xl md:text-7xl '> Share <br /> {" "}
-        <LineShadowText className="italic " shadowColor={shadowColor}>
-          notes
-        </LineShadowText>
-        {" "} instantly
-      </h1>
-      </Link>
-      <h3 className='  my-3 text-center  text-xl italic font-stretch-semi-condensed'>
-        Write a note, generate a link, and share it with anyone. Simple as that.
-      </h3>
+      <div className="p-6">
+        <Header />
+        <Link href="/"><h1 className='animate-in fade-in zoom-in duration-400 text-center mb-2 text-5xl font-semibold leading-none tracking-tighter sm:text-6xl md:text-7xl '> Share <br /> {" "}
+          <LineShadowText className="italic " shadowColor={shadowColor}>
+            notes
+          </LineShadowText>
+          {" "} instantly
+        </h1>
+        </Link>
+        <h3 className='  my-3 text-center  text-xl italic font-stretch-semi-condensed'>
+          Write a note, generate a link, and share it with anyone. Simple as that.
+        </h3>
+        <div className="flex flex-wrap justify-center gap-4 mt-10 text-sm text-gray-600">
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span>No signup required</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            <span>Instant sharing</span>
+          </div>
+          {/* <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+            <span>Beautiful design</span>
+          </div> */}
+        </div>
 
-      <div className="relative mt-[45px] w-full backdrop-blur-2xl border-1 rounded-lg p-4 shadow-xl">
-        <textarea
-          className="w-full h-96 backdrop-blur-2xl p-2 rounded-lg"
-          value={text}
-          readOnly
-        />
-        <BorderBeam duration={8} size={100} />
-        <button
-          onClick={handleCopy}
-          className="absolute top-4 right-4 bg-black text-white p-2 rounded-lg hover:bg-gray-800 transition"
-        >
-          <Copy />
-        </button>
+        <div className="relative mt-[45px] w-full backdrop-blur-2xl border-1 rounded-lg p-4 shadow-xl">
+          <div className="absolute inset-0 -z-10  w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]"></div>
+          <textarea
+            className="w-full h-96 backdrop-blur-2xl p-2 rounded-lg"
+            value={text}
+            readOnly
+          />
+          <BorderBeam duration={8} size={100} />
+          <button
+            onClick={handleCopy}
+            className="absolute top-4 right-4 bg-black text-white p-2 rounded-lg hover:bg-gray-800 transition"
+          >
+            <Copy />
+          </button>
+        </div>
+
+
       </div>
 
-    
-    </div>
-      <Footer/>
+      <div className='mt-[24px]'>
+        <Footer />
+      </div>
     </>
   );
 }
