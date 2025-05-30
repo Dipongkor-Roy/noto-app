@@ -101,6 +101,32 @@ export default function NoteViewer({
           </div> */}
         </div>
 
+        {/* Add this block below the features */}
+        <div className="flex justify-center mt-4">
+          <div className="relative w-full max-w-md">
+            <input
+              type="text"
+              readOnly
+              value={typeof window !== "undefined" ? window.location.href : ""}
+              className="w-full border rounded px-4 py-2 pr-10 bg-gray-100 text-gray-700 focus:outline-none"
+              onFocus={e => e.target.select()}
+            />
+            <button
+              type="button"
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-black"
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  navigator.clipboard.writeText(window.location.href);
+                  toast.success('Link copied!');
+                }
+              }}
+              tabIndex={-1}
+            >
+              <Copy size={18} />
+            </button>
+          </div>
+        </div>
+
         <div className="relative mt-[45px] w-full backdrop-blur-2xl border-1 rounded-lg p-4 shadow-xl">
           <div className="absolute inset-0 -z-10  w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]"></div>
           <textarea
