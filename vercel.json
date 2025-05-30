@@ -1,12 +1,9 @@
 {
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/"
+      "src": "next.config.js",
+      "use": "@vercel/next"
     }
   ]
 }
