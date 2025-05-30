@@ -5,6 +5,10 @@
       "destination": "/api/:path*"
     },
     {
+      "source": "/:slug",
+      "destination": "/[slug]"
+    },
+    {
       "source": "/(.*)",
       "destination": "/"
     }
