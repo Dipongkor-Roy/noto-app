@@ -1,3 +1,5 @@
+// vercel-cron: 0 0 * * *
+
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 
