@@ -8,7 +8,7 @@ import { useTheme } from "next-themes";
 import { Input } from '@/components/ui/input';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
-import { LinkIcon, Lock } from 'lucide-react';
+import { LinkIcon, Lock, Loader2 } from 'lucide-react';
 import Header from '@/components/Header/Header';
 
 import { PasswordDialog } from '@/components/modal/modal';
@@ -24,16 +24,19 @@ export default function Home() {
   const [content, setContent] = useState('');
   const [customSlug, setCustomSlug] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const createNote = async () => {
     if (!content.trim()) return;
+    setLoading(true);
     const res = await fetch('/api/note', {
       method: 'POST',
       body: JSON.stringify({ content, customSlug, password }),
     });
 
     const data = await res.json();
+    setLoading(false);
     if (res.ok) {
       toast.success('Successfully Note Created!')
       router.push(`/${data.slug}`);
@@ -105,7 +108,16 @@ export default function Home() {
         {error && <p className="text-red-500">{error}</p>}
         <div className='flex justify-between items-center mt-2'>
           <div>
-            <button onClick={createNote} className="mt-2 px-4 py-2 bg-black text-white rounded-full">
+            <button
+              onClick={createNote}
+              className={`mt-2 px-4 py-2 rounded-full cursor-pointer transition-colors duration-200 flex items-center justify-center gap-2
+                ${content.trim()
+                  ? 'bg-black text-white hover:bg-gray-800'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'}
+              `}
+              disabled={!content.trim() || loading}
+            >
+              {loading && <Loader2 className="animate-spin h-4 w-4" />}
               Create & Share
             </button>
           </div>
