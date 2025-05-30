@@ -110,11 +110,16 @@ export default function Home() {
           <div>
             <button
               onClick={createNote}
-              className={`mt-2 px-4 py-2 rounded-full cursor-pointer transition-colors duration-200 flex items-center justify-center gap-2
-                ${content.trim()
-                  ? 'bg-black text-white hover:bg-gray-800'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'}
-              `}
+              className={`
+    mt-2 px-4 py-2 rounded-full cursor-pointer transition-colors duration-200 flex items-center justify-center gap-2
+    ${content.trim()
+      ? 'bg-black text-white hover:bg-gray-800'
+      : 'bg-gray-300 text-gray-500 cursor-not-allowed'}
+    sm:text-base
+    text-sm
+    sm:px-4 sm:py-2
+    px-3 py-1
+  `}
               disabled={!content.trim() || loading}
             >
               {loading && <Loader2 className="animate-spin h-4 w-4" />}
